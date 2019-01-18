@@ -1,3 +1,6 @@
+//!!!anonymous function is an unnamed functional expression
+//анонимная функция представляет собой функциональное выражение без имени
+
 //simple example func in arguments list
 
 administer(patient, function (dosage) {
@@ -45,3 +48,25 @@ function quack(num) {
         quacker();
     }
 }
+
+//built-in functional expression
+//встроенное функциональное выражение
+
+(function(food){
+    if((food) === "cookies"){
+        console.log("More pls");
+    } else if (food === "cake"){
+        console.log("yum");
+    }
+})("cookies");
+
+
+//it's like above
+var a = function(food){
+    if((food) === "cookies"){
+        console.log("More pls");
+    } else if (food === "cake"){
+        console.log("yum");
+    }
+}
+a("cookies");//we only called the function with argument

@@ -13,6 +13,9 @@ function whereAreYou(){
     return globOrLoc;
 }
 
+//Create a variable innerFunction and assign the resulting function to it.
+//The function reference stores its own environment.
 var innerFunction = whereAreYou();
+//Next, we call the function, process its body in the context of its environment.
 var result = innerFunction();
 console.log(result);
