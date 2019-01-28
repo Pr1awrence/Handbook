@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Основное содержание. Тег main</title>
+    <meta charset="utf-8">
+    <style>
+    /* Header */
+    header.page-header {
+        position: relative;
+        z-index: 5;
+
+        min-height: 20px;
+        padding: 20px;
+
+        color: white;
+
+        background-image:
+                linear-gradient(45deg, #34495e 25%, transparent 25%),
+                linear-gradient(-45deg, #34495e 25%, transparent 25%),
+                linear-gradient(135deg, #34495e 25%, transparent 25%),
+                linear-gradient(-135deg, #34495e 25%, transparent 25%);
+        background-position: 10px 0, 10px 0, 0 0, 0 0;
+        background-size: 20px 20px;
+        box-shadow: 0 0 5px 0 #333333;
+    }
+
+    /* Main */
+    main {
+        min-height: 200px;
+        padding-top: 50px;
+
+        color: black;
+
+        background-color: white;
+/*        //картинка закодирована как data: url*/
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAMAAAApB0NrAAAABlBMVEX///+pqalTpKl9AAAAAnRSTlMAGovxNEIAAAAdSURBVDjLY2AAAUaG4UYxDDsfjfp91O+jfqfE7wCzpQCw/dq+qQAAAABJRU5ErkJggg==");
+    }
+
+    </style>
+</head>
+<body>
+<header class="page-header">
+    Хедер
+</header>
+<!--main used for the main content of the page. Must be unique!-->
+<main>Основное содержание</main>
+<footer class="page-footer">
+    Футер
+</footer>
+</body>
+</html>
