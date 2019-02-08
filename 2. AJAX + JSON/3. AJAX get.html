@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax get</title>
+    <script>
+        window.onload = function () {
+            document.getElementById("button").onclick = function () {
+                ajaxGet("3.my.txt", function(text){
+                    document.getElementById("demo").innerHTML = text;
+                });
+            };
+
+            function ajaxGet(url, callback) {
+                let request = new XMLHttpRequest();
+
+                request.onreadystatechange = function () {
+                    if(request.readyState === 4 && request.status === 200){
+                        callback(this.responseText);
+                    }
+                };
+                request.open("GET", url);
+                request.send();
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <button id="button" type="button">My text</button>
+</div>
+</body>
+</html>
