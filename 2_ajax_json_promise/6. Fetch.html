@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch</title>
+    <script>
+        /*let url = 'https://example.com/profile';
+        let data = {username: 'example'};
+
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            body: JSON.stringify(data), // data can be `string` or {object}!
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .then(response => console.log('Success:', JSON.stringify(response)))
+            .catch(error => console.error('Error:', error));*/
+
+        let loadImage = function(url) {
+            fetch(url)
+                .then(response => {
+                    if (response.status === 200) {
+                        embedImage(url);
+                    }
+                })
+                .catch(error => errorImage(error)
+                );
+        };
+
+        const embedImage = function (url) {
+            if(url){
+                let image = document.getElementById("image");
+                image.src = url;
+                console.log(url);
+            }
+        };
+
+        const errorImage = function (error) {
+            document.getElementById("error").innerHTML = error.name + " " + error.message;
+        }
+    </script>
+</head>
+<body>
+<button onclick="loadImage('http://192.168.1.62:8080/im')">TRY</button>
+<img id="image">
+<div id="error"></div>
+
+</body>
+</html>

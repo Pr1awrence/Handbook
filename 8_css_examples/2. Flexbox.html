@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS flexbox</title>
+    <style>
+        .room room-1{
+            flex-direction: row; /*отображение элементов относительно главной оси*/
+            justify-content: space-around; /*отображение элементов flex-start, flex-end, center, space-between, space-around*/
+            align-items: stretch /*выравнивание элементов вдоль поперечной оси - stretch(флекс элементы
+            вытягиваются во всю ширину, если у них не задана высота), center, flex-start, flex-end, baseline
+            (элементы выстроятся так, чтобы текст в них был как бы на одной строке)*/
+            flex-wrap: wrap; /*отвечает за перенос блоков на следующие строки, если они не помещаются в контейнер
+            wrap, wrap-reverse*/
+            align-content: /*управляет выравниванием рядов флекс-элементов вдоль поперечной оси, justify-content
+            за основную ось, этот за поперечную. Stretch по умолчанию, его нет у justify-content.
+            Это свойство исользуем тогда, когда несколько рядов, когда 1 - align-items.
+            Сейчас это свойство используется везде вместо align-items.
+
+            Значение align-items влияет на отображение рядов во флекс-контейнере, если у align-content задано значение stretch.*/
+
+            order: -1; /*отвечает за порядок отображения элементов. -2 соответственно выше чем -1 и 1*/
+        }
+        .rudolf {
+            align-self: flex-start; /*выравнивание элемента относительно поперечной оси (для самих себя) значения как
+            у align-items*/
+        }
+    </style>
+</head>
+<body class="house">
+<div class="room room-1">
+    <div class="rug rudolf"></div>
+    <div class="rug keks"></div>
+    <div class="rug simeon"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Click me!</title>
+    <style>body, button {margin: 10px;}
+    div {padding: 10px;}
+    </style>
+    <script>
+        //it's bad decision, because we have a global letiable count
+        /*
+        let count = 0;
+        window.onload = function(){
+            let button = document.getElementById("clickme");
+            button.onclick = handleButton;
+        }
+
+        function handleButton() {
+            let message = document.getElementById("message");
+            count++;
+            message.innerHTML = "You clicked me " + count + " times!";
+        }
+    */
+        //i'm refactor code above, now we have a function expression "button.onclick" - closure
+    window.onload = function () {
+        let count = 0;
+        let message = document.getElementById("message");
+        let button = document.getElementById("clickme");
+
+        button.onclick = function(){
+            count++;
+            message.innerHTML = "You clicked me " + count + " times!";
+        }
+    }
+    </script>
+</head>
+<body>
+    <button id="clickme">Click me!</button>
+    <div id="message"></div>
+</body>
+</html>

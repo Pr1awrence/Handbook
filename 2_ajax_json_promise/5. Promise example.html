@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+    <script>
+    const loadImage = function (url) {
+        return new Promise(function (resolve, reject) {
+            let request = new XMLHttpRequest();
+            request.open('GET', url);
+
+            request.onload = function () {
+                if(request.status === 200){
+                    //Если успешный, то резолвим промис
+                    resolve(url);
+                } else {
+                    // Если нет, то реджектим промис
+                    //Тут можно было написать так
+                    //let textError = new Error('Произошла ошибка. Код ошибки:' + request.statusText);
+                    reject(Error(
+                        'Произошла ошибка. Код ошибки:' + request.statusText
+                ))
+                }
+            };
+        request.send();
+        });
+    };
+    
+    const embedImage = function (url) {
+        loadImage(url).then(function () {
+            let image = document.getElementById("image");
+            image.src = url;
+            console.log(url);
+        })
+            .catch(function (err) {
+            document.getElementById("error").innerHTML = err;
+        });
+    };
+        
+
+    </script>
+</head>
+<body>
+    <button onclick="embedImage('http://192.168.1.62:8080/img')">TRY</button>
+    <img id="image">
+    <div id="error"></div>
+
+</body>
+</html>
