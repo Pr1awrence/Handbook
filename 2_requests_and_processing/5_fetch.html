@@ -1,10 +1,18 @@
+<!--
+ARTICLE ABOUT: https://developer.mozilla.org/ru/docs/Web/API/Fetch_API
+HOW TO USE: https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch
+RU ARTICLE: https://learn.javascript.ru/fetch
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Fetch</title>
     <script>
-        /*let url = 'https://example.com/profile';
+        /*
+        First example with Fetch to received the data
+        let url = 'https://example.com/profile';
         let data = {username: 'example'};
 
         fetch(url, {
@@ -12,11 +20,17 @@
             body: JSON.stringify(data), // data can be `string` or {object}!
             headers: {
                 'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
+            } //make a request, received promise
+
+        }).then(res => res.json()) //If promise executed successfully,
+            we get a special response object (https://developer.mozilla.org/en-US/docs/Web/API/Response/Response)
+
             .then(response => console.log('Success:', JSON.stringify(response)))
+            //The json() method returns a promise, so that we call the then again and in the callback we output the data to the console.
+
             .catch(error => console.error('Error:', error));*/
 
+        /*Second example with Fetch to received and show picture*/
         let loadImage = function(url) {
             fetch(url)
                 .then(response => {
@@ -42,7 +56,11 @@
     </script>
 </head>
 <body>
-<button onclick="loadImage('http://192.168.1.62:8080/im')">TRY</button>
+<!-- I left an incorrect link for the test
+ERROR: TypeError Failed to fetch-->
+<button onclick="loadImage('http://192.168.1.62:8080/im')">ERROR</button>
+
+<button onclick="loadImage('https://avatars.mds.yandex.net/get-pdb/231404/b3e1a0ca-f922-44e0-8f0c-32560efeefae/orig')">ALL CORRECT</button>
 <img id="image">
 <div id="error"></div>
 

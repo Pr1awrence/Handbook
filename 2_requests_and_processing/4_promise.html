@@ -1,3 +1,8 @@
+<!--
+ARTICLE ABOUT: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise
+RU ARTICLE: https://learn.javascript.ru/promise
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +16,13 @@
 
             request.onload = function () {
                 if(request.status === 200){
-                    //Если успешный, то резолвим промис
+                    //If the request is successful, then resolve the promise
+                    //RU: Если успешный, то резолвим промис
                     resolve(url);
                 } else {
-                    // Если нет, то реджектим промис
-                    //Тут можно было написать так
+                    //If not, reject promise
+                    //RU: Если нет, то реджектим промис
+                    //Here you could write:
                     //let textError = new Error('Произошла ошибка. Код ошибки:' + request.statusText);
                     reject(Error(
                         'Произошла ошибка. Код ошибки:' + request.statusText
@@ -41,9 +48,8 @@
     </script>
 </head>
 <body>
-    <button onclick="embedImage('http://192.168.1.62:8080/img')">TRY</button>
+    <button onclick="embedImage('https://avatars.mds.yandex.net/get-pdb/231404/b3e1a0ca-f922-44e0-8f0c-32560efeefae/orig')">TRY</button>
     <img id="image">
     <div id="error"></div>
-
 </body>
 </html>
